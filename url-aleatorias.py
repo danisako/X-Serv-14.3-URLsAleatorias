@@ -17,11 +17,13 @@ try:
 		print(recvSocket.recv(1024))
 		next_url = random.randint(1,100000)
 		recvSocket.send(bytes('HTTP/1.1 200 OK \r\n\r\n' +
-                        '<html><title>Hola!</title>' +
-                        '<body>Hola.' +
-                        '<a href="http://localhost:1237/' + str(next_url) +
+                        '<html><title>URLs Aleatorias</title>' +
+                        '<body>Hola.  ' +
+                        '<a href="http://localhost:1237/' +
+						 str(next_url) +
                         '">Dame otra</a>' +
-                        '</body></html>', 'utf-8'))
+                        '</body></html>'+
+						'\r\n', 'utf-8'))
 		recvSocket.close()
 except KeyboardInterrupt:
     print('Closing binded socket')
